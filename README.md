@@ -1,6 +1,6 @@
 # SnakeX2-app
 
-Simple mobile snake game app for 2 players on the same the same device.
+Simple mobile snake game app for 2 players on the same device.
 
 These are the WebView files and you will require Phonegap/Cordova to create the actual app package for the device of your choice. For instructions on that, please check Phonegap/Cordova.
 
