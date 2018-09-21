@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Snake!</title>
+	
+	<meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+	
+	<link rel="shortcut icon" type="image/png" href="images/logo/snakes.png"/>
+	<link rel="stylesheet" type="text/css" href="css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="css/fonts.css" />
+	<link rel="stylesheet" type="text/css" href="css/screens.css" />
+	<link rel="stylesheet" type="text/css" href="css/checkboxes.css" />
+	<link rel="stylesheet" type="text/css" href="css/player_settings.css" />
+	<link rel="stylesheet" type="text/css" href="css/gameover_screen.css" />
+	<link rel="stylesheet" type="text/css" href="css/console.css" />
+	<style type="text/css">
+/*test css goes here*/
+
+	</style>
+</head>
+<body>
+
+	<div class="screen loadingScreen active">
+		<div class="screenContent">
+			<div class="logo">
+				<img alt="logo" src="images/loading/games4two_v2.png" />
+			</div>
+			<div class="loader">
+				<div class="wall top"></div>
+				<div class="wall right"></div>
+				<div class="wall bottom"></div>
+				<div class="wall left"></div>
+			</div>
+			<div class='text-contents'>
+				<p>presents</p>
+				<h3>Snake X Two</h3>
+			</div>
+		</div>
+	</div>
+
+	<div id="game">
+		<div class="screen startScreen active">
+			<div class="screenContent menuGroup-btn brown">
+				<button type="button" data-where="gameScreen" data-action="playMulti">Snake x2</button>
+				<!--<button type="button" data-where="gameScreen" data-action="toggleClassic">Snake x2 Classic</button>-->
+				<button type="button" data-where="gameScreen" data-action="singlePlayer">Play alone</button>
+				<button type="button" data-where="instructionsScreen">Instructions</button>
+				<button type="button" data-where="settingsScreen">Settings</button>
+				<button type="button" data-where="adsScreen">Help us by watchig some ads</button>
+				<button type="button" data-where="creditsScreen">Credits</button>
+			</div>
+		</div>
+		<div class="screen instructionsScreen">
+			<div class="screenContent menuGroup-btn brown">
+				<p>Bringing back the good old days, but with a 2-player twist!</p>
+				<p>Control your snake to collect apples and try to beat your oppontent by ultimately ending up with more apples.</p>
+				<p>Your snake will grown as your pile increases, so you will need to be more careful.</p>
+				<p>Check out the settings area for the game set up and the do's and dont's for your game. There you can also customize the rules to your liking.</p>				
+				<button type="button" data-where="startScreen">Back to Main Menu</button>
+			</div>
+		</div>
+		<div class="screen settingsScreen">
+			<div class="screenContent menuGroup-btn brown">
+				<h2>Players</h2>
+				<span class="group" data-snake="0">Player 1: 
+					<div class="player_settings" data-setting="colors">
+						<div class="menu_button colors"></div>
+						<ul class="swatches color_palette">
+							<li data-data="#ff3030,red" style="background-color: #ff3030;"></li>
+							<li data-data="#ffbf00,#ce9a00" style="background-color: #ffbf00;"></li>
+							<li data-data="#80ff00,#62c400" style="background-color: #80ff00;"></li>
+							<li data-data="#00ff40,#00ce33" style="background-color: #00ff40;"></li>
+							<li data-data="cyan,#00afaf" style="background-color: cyan;"></li>
+							<li data-data="#2a5ffc,#0040ff" style="background-color: #2a5ffc;"></li>
+							<li data-data="#8000ff,#5a00b5" style="background-color: #8000ff;"></li>
+							<li data-data="#ff00bf,#c10091" style="background-color: #ff00bf;"></li>
+						</ul>
+					</div>
+					
+					<div class="player_settings" data-setting="skins">
+						<div class="menu_button skins"></div>
+						<ul class="swatches skin_palette">
+							<li data-data="null">none</li> <li data-data="images/skins/skin1"></li> <li data-data="images/skins/skin2"></li> <li data-data="images/skins/skin3"></li> <li data-data="images/skins/skin4"></li> <li data-data="images/skins/skin5"></li>
+						</ul>
+					</div>
+				</span>
+				<br>
+				
+				<span class="group" data-snake="1">Player 2: 
+					<div class="player_settings" data-setting="colors">
+						<div class="menu_button colors"></div>
+						<ul class="swatches color_palette">
+							<li data-data="#ff3030,red" style="background-color: #ff3030;"></li>
+							<li data-data="#ffbf00,#ce9a00" style="background-color: #ffbf00;"></li>
+							<li data-data="#80ff00,#62c400" style="background-color: #80ff00;"></li>
+							<li data-data="#00ff40,#00ce33" style="background-color: #00ff40;"></li>
+							<li data-data="cyan,#00afaf" style="background-color: cyan;"></li>
+							<li data-data="#2a5ffc,#0040ff" style="background-color: #2a5ffc;"></li>
+							<li data-data="#8000ff,#5a00b5" style="background-color: #8000ff;"></li>
+							<li data-data="#ff00bf,#c10091" style="background-color: #ff00bf;"></li>
+						</ul>
+					</div>
+					
+					<div class="player_settings" data-setting="skins">
+						<div class="menu_button skins"></div>
+						<ul class="swatches skin_palette">
+							<li data-data="null">none</li> <li data-data="images/skins/skin1"></li> <li data-data="images/skins/skin2"></li> <li data-data="images/skins/skin3"></li> <li data-data="images/skins/skin4"></li> <li data-data="images/skins/skin5"></li>
+						</ul>
+					</div>
+				</span>
+				
+				<h2>Modes</h2>
+				<input type="checkbox" name="speedster" id="speedster" value="speedster" class="css-checkbox">
+				<label for="speedster" class="css-label"><div>
+					<h3>Speed booster</h3>
+					<p>With each apple a snake eats, the game speeds up and both snakes start moving a bit quicker. Can you handle it?</p>
+				</div></label>
+				<input type="checkbox" name="nowalls" id="nowalls" value="nowalls" class="css-checkbox">
+				<label for="nowalls" class="css-label"><div>
+					<h3>Breaking the walls</h3>
+					<p>Allows your snake to pass through the 4 walls of the field. The snake will show up on the oposite site of the field.</p>
+				</div></label>
+				<input type="checkbox" name="applex2" id="applex2" value="applex2" class="css-checkbox">
+				<label for="applex2" class="css-label"><div>
+					<h3>Apple x 2</h3>
+					<p>Spawns an additional apple so that there are always 2 apples on the field.</p>
+				</div></label>
+				<input type="checkbox" name="biteme" id="biteme" value="biteme" class="css-checkbox">
+				<label for="biteme" class="css-label"><div>
+					<h3>Bite me</h3>
+					<p>Any time a snake bumps into its opponent, it "bites off" its tail at the point of collision. If a snake's length becomes less than its original length (3 blocks), the game is over. Biting off does not affect points gathered.</p>
+				</div></label>
+				<input type="checkbox" name="snakebite" id="snakebite" value="snakebite" class="css-checkbox">
+				<label for="snakebite" class="css-label"><div>
+					<h3>Snake Bite</h3>
+					<p>For a more obsticle-full experience. Make sure to avoid colliding with the other snake on the field, or the game will be over.</p>
+				</div></label>
+				
+				<input type="checkbox" name="classic" id="classic" value="classic" class="css-checkbox">
+				<label for="classic" class="css-label"><div>
+					<h3>Classic View</h3>
+					<p>Go back to the good old days where graphics were quite different. Experience the original (or close to it).</p>
+				</div></label>
+				
+				<h2>Game field</h2>
+				<div class="radio_types">
+					<input type="radio" name="consoletype" id="typeA" value="typeA" checked />
+						<label class="types" for="typeA">Buttons on top and bottom<img src="images/typeA.png" alt="typeA" /></label>
+
+					<input type="radio" name="consoletype" id="typeB" value="typeB" class="types" />
+						<label class="types" for="typeB">Buttons on left and right<img src="images/typeB.png" alt="typeB" /></label>
+				</div>
+				
+				<button type="button" data-where="startScreen">Back to Main Menu</button>
+			</div>
+
+		</div>
+		<div class="screen adsScreen">
+			<div class="screenContent menuGroup-btn brown">
+				<p>Thank you for your help! Please check out some ads and who knows... you might even find something you like.</p>
+				<br>
+				<button type="button" data-action="prepInterstitial">Show me some full screen ads</button>
+				<!--<button type="button" data-action="prepVideo">Show me a video ad</button>-->
+				<br><br><br>
+				<button type="button" data-where="startScreen">Back to Main Menu</button>
+			</div>
+		</div>
+		<div class="screen creditsScreen">
+			<div class="screenContent menuGroup-btn brown">
+				<p>Background music and SFX:<br>“8-Bit Puzzler” by Eric Matyas, www.soundimage.org.</p>
+				<p>Buttons:<br>Sound effects obtained from http://www.freesfx.co.uk.</p>
+				<button type="button" data-where="startScreen">Back to Main Menu</button>
+			</div>
+		</div>
+		<div class="screen gameOver">
+			<div class="screenContent">
+				<div class="summary">
+					<ul class="apples">
+						<li class="apple"><img class="" src="images/apple_gold.png" alt='apple' /></li>
+						<li class="apple"><img class="" src="images/apple_gold.png" alt='apple' /></li>
+						<li class="apple"><img class="" src="images/apple_gold.png" alt='apple' /></li>
+					</ul>
+					
+					<p class="game_text">Great game! Keep them coming. Here are the stats for you.</p>
+					
+					<div class="general-stats">
+						<p class="time_played">Time played: <br> <span class="result">00:00:00</span></p>
+						<p class="total_apples">Apples gathered: <br> <span class="result">0</span></p>
+					</div>
+				</div>
+				
+				<div class="player_details">
+					<p class="game_text">Great game! Keep them coming. Here are the stats for you.</p>
+					
+					<div class="detailed-stats">
+						<p class="apple_details">Apples: <span class="result">00/00</span></p>
+						<p class="you_bite_details"># of times you <br> bit the other snake: <span class="result">N/A</span></p>
+						<p class="you_bite_pieces_details"># of pieces you <br> bit off: <span class="result">N/A</span></p>
+						<p class="bitten_off_pieces_details"># of pieces <br> bitten off you: <span class="result">N/A</span></p>
+						<p class="fun_details">Fun playing: <span class="result">Plenty of it</span></p>
+					</div>
+				</div>
+				
+				<div class="menuGroup-btn brown">
+					<button type="button" data-action="toggleScoreDetails">Details</button>
+					<button type="button" data-where="gameScreen">Play Again</button>
+					<button type="button" data-where="startScreen">Menu</button>
+				</div>
+			</div>
+		</div>
+		<div class="screen gameScreen">
+			
+			<button id='start' type="button" data-action="startGame">Start</button>
+			<div id="player1" class="playerGroup-btn typeA">
+				<button type="button" data-direction="left"><svg viewBox="0 0 512 512" xml:space="preserve"><g><path d="M144,124.9L353.8,256L144,387.1V124.9 M128,96v320l256-160L128,96L128,96z"/></g></svg></button> <!-- left -->
+				<button type="button" data-direction="right"><svg viewBox="0 0 512 512" xml:space="preserve"><g><path d="M144,124.9L353.8,256L144,387.1V124.9 M128,96v320l256-160L128,96L128,96z"/></g></svg></button> <!-- right -->
+				<button type="button" class="menu_icon" data-action="displaySubmenu"><span><span></span><span></span><span></span></span></button>
+				<button type="button" data-direction="down"><svg viewBox="0 0 512 512" xml:space="preserve"><g><path d="M144,124.9L353.8,256L144,387.1V124.9 M128,96v320l256-160L128,96L128,96z"/></g></svg></button> <!-- down -->
+				<button type="button" data-direction="up"><svg viewBox="0 0 512 512" xml:space="preserve"><g><path d="M144,124.9L353.8,256L144,387.1V124.9 M128,96v320l256-160L128,96L128,96z"/></g></svg></button> <!-- up -->
+			</div>
+			<div id="player2" class="playerGroup-btn typeA">
+				<button type="button" data-direction="down"><svg viewBox="0 0 512 512" xml:space="preserve"><g><path d="M144,124.9L353.8,256L144,387.1V124.9 M128,96v320l256-160L128,96L128,96z"/></g></svg></button> <!-- up -->
+				<button type="button" data-direction="up"><svg viewBox="0 0 512 512" xml:space="preserve"><g><path d="M144,124.9L353.8,256L144,387.1V124.9 M128,96v320l256-160L128,96L128,96z"/></g></svg></button> <!-- down -->
+				<button type="button" class="menu_icon" data-action="displaySubmenu"><span><span></span><span></span><span></span></span></button>
+				<button type="button" data-direction="left"><svg viewBox="0 0 512 512" xml:space="preserve"><g><path d="M144,124.9L353.8,256L144,387.1V124.9 M128,96v320l256-160L128,96L128,96z"/></g></svg></button> <!-- right -->
+				<button type="button" data-direction="right"><svg viewBox="0 0 512 512" xml:space="preserve"><g><path d="M144,124.9L353.8,256L144,387.1V124.9 M128,96v320l256-160L128,96L128,96z"/></g></svg></button> <!-- left -->
+			</div>
+			
+			
+			
+			
+			<div class="submenu">
+				<div class="screenContent menuGroup-btn green">
+					<button type="button" data-action="resumeGame">Resume</button>
+					<button type="button" data-action="restartGame">Restart</button>
+					<button type="button" data-where="startScreen">Back to Main Menu</button>
+				</div>
+			</div>
+		</div>
+		<div class="topbar">
+			<input type="checkbox" name="sound" id="sound" value="on">
+			<label for="sound"><div></div></label>
+		</div>
+	</div>
+	<audio id="background_sound" loop>
+		<source src="audio/background.ogg" type="audio/ogg">
+		<source src="audio/background.mp3" type="audio/mpeg">
+	</audio>
+	<audio id="button_press">
+		<source src="audio/button.wav" type="audio/wav">
+	</audio>
+	<audio id="apple_score">
+		<source src="audio/apples.mp3" type="audio/mp3">
+	</audio>
+	
+	
+	<script type="text/javascript" src="cordova.js"></script>
+	<script src="js\ads.js"></script>
+	
+	<script src="js\utils.js"></script>
+	<script src="js\tap.js"></script>
+	
+	<script src="js\parts.js"></script>
+	<script src="js\events.js"></script>
+	<script src="js\game.js"></script>
+	<script>
+		window.onload = function() {
+			//set canvas
+			activate_canvas(settings.console);
+			//remove loading screen
+			setTimeout(function(){
+				//goto('startScreen');
+				var loading = document.querySelector('.loadingScreen');
+				var game = document.querySelector('#game');
+				loading.classList.remove('active');
+				//loading.style.transform = 'translateX(-100%)';
+			}, 5000);
+		}
+		
+		document.body.style.width = window.innerWidth + "px";
+		document.body.style.height = window.innerHeight + "px";
+		
+		window.onresize = function(event) {
+			document.body.style.width = window.innerWidth + "px";
+			document.body.style.height = window.innerHeight + "px";
+		};
+
+		//slider functionality
+		var screens = document.querySelectorAll('#game .screen');
+		var screenwidthcss = screens[0].style.width;
+		var screenwidth = screens[0].getBoundingClientRect().width;
+		//translate screens in a row
+		screens.forEach(function(screen, i){
+			screen.style.transform = 'translate3d(' + (i * 100) + "%, 0, 0)";
+		});
+	</script>
+</body>
+</html>
